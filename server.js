@@ -1,6 +1,7 @@
 //dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
+var path = require("path");
 
 //port
 var PORT = process.env.PORT || 8000;
