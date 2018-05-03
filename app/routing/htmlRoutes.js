@@ -7,10 +7,10 @@ module.exports = function(app){
     res.sendFile(path.join(__dirname, "../public/survey.html"))
   });
 
-  //friends page
-  app.get("/friends", function(req, res){
-    res.sendFile(path.join(__dirname, '../public/friends.html'))
-  });
+  // //friends page
+  // app.get("/friends", function(req, res){
+  //   res.sendFile(path.join(__dirname, '../public/friends.html'))
+  // });
 
   //default home page
   app.get("*", function(req, res){
