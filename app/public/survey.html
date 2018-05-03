@@ -5,7 +5,11 @@
   <meta charset="UTF-8">
   <title>Friend Finder</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 </head>
 
 <body>
@@ -182,7 +186,7 @@
             <option value="5">5 (Strongly Agree)</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary submit">Submit</button>
       </form>
     </div>
     <footer class="footer">
@@ -194,6 +198,51 @@
       </div>
     </footer>
   </div>
+
+
+  <script type="text/javascript">
+    function clearFields() {
+      $("#name").val("");
+      $("#photo").val("");
+      $("#ques1").val("");
+      $("#ques2").val("");
+      $("#ques3").val("");
+      $("#ques4").val("");
+      $("#ques5").val("");
+      $("#ques6").val("");
+      $("#ques7").val("");
+      $("#ques8").val("");
+      $("#ques9").val("");
+      $("#ques10").val("");
+    };
+
+    $(".submit").on("click", function (event) {
+      event.preventDefault();
+
+      var newFriend = {
+        name: $("#name").val().trim(),
+        photo: $("#photo").val().trim(),
+        scores: [
+          $("#ques1").val(),
+          $("#ques2").val(),
+          $("#ques3").val(),
+          $("#ques4").val(),
+          $("#ques5").val(),
+          $("#ques6").val(),
+          $("#ques7").val(),
+          $("#ques8").val(),
+          $("#ques9").val(),
+          $("#ques10").val()
+        ]
+      };
+
+      console.log(newFriend);
+
+      $.post("/api/friends", newFriend, function (data) {
+
+      });
+    });
+  </script>
 </body>
 
 </html>
